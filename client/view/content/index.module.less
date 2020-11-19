@@ -1,9 +1,18 @@
 .content_wrap {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  width: 1200px;
-  margin: 76px auto 0;
+  flex-flow: column nowrap;
+  min-height: calc(100vh - 76px);
+  background-image: linear-gradient(#fff 1px, transparent 0),linear-gradient(90deg, #fff 1px, transparent 0);
+  background-size: 30px 30px,30px 30px;
+  margin: 76px 0 0;
+  .content_inner {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 1200px;
+    margin: 0 auto;
+  }
+
   &_left {
     width: 900px;
     margin-right: 20px;

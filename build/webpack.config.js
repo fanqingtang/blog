@@ -13,8 +13,8 @@ module.exports = {
   },
   output: {
     filename: '[name].[hash].js',
-    path: path.join(__dirname, '../dist'),
-    publicPath: ''
+    path: path.join(__dirname, '../dist')
+    // publicPath: '../'
   },
   mode: 'development',
   module: {
