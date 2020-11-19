@@ -3,13 +3,14 @@
  * @Autor: fqt
  * @Date: 2020-11-19 18:25:53
  * @LastEditors: fqt
- * @LastEditTime: 2020-11-19 18:35:38
+ * @LastEditTime: 2020-11-19 19:16:49
  */
 
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common')
 const path = require('path')
 module.exports = merge(common, {
+  mode: 'development',
   devServer: {
     contentBase: path.join(__dirname, '../dist'),
     compress: true,

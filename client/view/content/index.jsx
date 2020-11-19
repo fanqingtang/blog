@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './index.module.less';
-import Article from '@/view/content/components/Article';
-import Right from '@/view/content/components/Right';
+import styles from './index.module.less'
+import Article from '@/view/content/components/Article'
+import Right from '@/view/content/components/Right'
 const Content = () => {
   return (
     <main className={styles.content_wrap}>

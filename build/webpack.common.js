@@ -1,7 +1,15 @@
+/*
+ * @Description:
+ * @Autor: fqt
+ * @Date: 2020-11-19 18:25:37
+ * @LastEditors: fqt
+ * @LastEditTime: 2020-11-19 20:13:56
+ */
 
 const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 const Autoprefixer = require('autoprefixer')
+const MiniExtractTextPlugin = require('mini-css-extract-plugin')
 const theme = {
   'primary-color': 'black',
   'border-radius-base': '4px'
@@ -16,47 +24,18 @@ module.exports = {
     path: path.join(__dirname, '../dist'),
     publicPath: '/'
   },
-  mode: 'development',
   devtool: 'source-map', // 会生成对于调试的完整的.map文件，但同时也会减慢打包速度
   module: {
     rules: [
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              sassOptions: {
-                includePaths: [path.join(__dirname, '../client/styles')]
-              }
-            }
-          }
-        ]
+        use: [MiniExtractTextPlugin.loader, 'css-loader', 'postcss-loader']
       },
       {
         test: /\.less$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader',
-          {
-            loader: 'less-loader',
-            options: {
-              lessOptions: {
-                modifyVars: theme,
-                javascriptEnabled: true
-              }
-            }
-          }
-        ]
+        use: [MiniExtractTextPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
+
       },
       {
         test: /.jsx$/,
@@ -99,6 +78,7 @@ module.exports = {
       filename: 'index.html',
       template: path.join(__dirname, '../client/index.html')
     }),
+    new MiniExtractTextPlugin({ filename: './css/[name].css' }),
     Autoprefixer
   ],
   resolve: {
