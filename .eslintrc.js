@@ -15,6 +15,8 @@ module.exports = {
     // Customize your rules
     '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/member-ordering': 'off',
+    '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/no-require-imports': 0,
     'max-params': 0,
     'accessor-pairs': 2,
     'arrow-spacing': [

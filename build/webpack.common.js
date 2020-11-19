@@ -6,8 +6,6 @@ const theme = {
   'primary-color': 'black',
   'border-radius-base': '4px'
 }
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-// const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -95,21 +93,7 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    contentBase: path.join(__dirname, '../dist'),
-    compress: true,
-    host: 'localhost',
-    port: 9999,
-    overlay: {
-      // 当出现编译器错误或警告时，就在网页上显示一层黑色的背景层和错误信息
-      errors: true
-    },
-    hot: true,
-    inline: true,
-    historyApiFallback: true
-  },
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlPlugin({
       title: 'index',
       filename: 'index.html',
