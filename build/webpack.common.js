@@ -3,17 +3,14 @@
  * @Autor: fqt
  * @Date: 2020-11-19 18:25:37
  * @LastEditors: fqt
- * @LastEditTime: 2020-11-19 20:25:35
+ * @LastEditTime: 2020-11-19 20:43:00
  */
 
 const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 const Autoprefixer = require('autoprefixer')
 const MiniExtractTextPlugin = require('mini-css-extract-plugin')
-const theme = {
-  'primary-color': 'black',
-  'border-radius-base': '4px'
-}
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -79,6 +76,11 @@ module.exports = {
       template: path.join(__dirname, '../client/index.html')
     }),
     new MiniExtractTextPlugin({ filename: './css/[name].css' }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: path.join(__dirname, '../public'), to: 'public' }
+      ]
+    }),
     Autoprefixer
   ],
   resolve: {
