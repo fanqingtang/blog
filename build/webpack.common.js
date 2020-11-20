@@ -3,7 +3,7 @@
  * @Autor: fqt
  * @Date: 2020-11-19 18:25:37
  * @LastEditors: fqt
- * @LastEditTime: 2020-11-20 09:13:42
+ * @LastEditTime: 2020-11-20 14:17:06
  */
 
 const path = require('path')
@@ -66,6 +66,10 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.md$/,
+        use: 'raw-loader'
       }
     ]
   },

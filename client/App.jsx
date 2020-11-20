@@ -8,8 +8,8 @@ const App = () => {
       <div>
         <Switch>
           {
-            RouteMenus.map(list => (
-              <Route key={list.path} path={list.path} exact={list.exact} component={list.component}></Route>
+            RouteMenus.map((list, index) => (
+              <Route key={index} path={list.path} exact={list.exact} component={list.component}></Route>
             ))
           }
           <Route component={Error}></Route>
