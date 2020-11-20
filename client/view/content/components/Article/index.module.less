@@ -12,13 +12,13 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 0;
-      margin: 0 0 15px;
+      // margin: 0 0 15px;
       border-bottom: 1px solid #f0f0f0;
     }
     .article_inner {
       flex: 1;
       .title {
-        margin: 4px 0;
+        margin: 4px 0 20px;
         font-size: 18px;
         font-weight: 700;
         line-height: 1.5;
@@ -27,7 +27,7 @@
       .desc {
         margin: 0 0 8px;
         font-size: 16px;
-        line-height: 24px;
+        line-height: 28px;
         color: #999;
         text-align: justify;
       }
@@ -37,6 +37,10 @@
       & > span {
         margin-right: 10px;
         cursor: pointer;
+        vertical-align: middle;
+        & > i {
+          margin-right: 5px;
+        }
       }
       & > span:last-child {
         margin-right: 0;

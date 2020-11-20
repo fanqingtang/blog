@@ -1,17 +1,17 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Home from '@/view/Home'
-import HappyLive from '@/view/happyLive'
-import Instroduction from '@/view/Instroduction'
 import Error from '@/404.tsx'
+import RouteMenus from '@/routes/menu'
 const App = () => {
   return (
     <Router>
       <div>
         <Switch>
-          <Route exact path='/' component={Home}></Route>
-          <Route path='/happyLive' component={HappyLive}></Route>
-          <Route path='/instroduction' component={Instroduction}></Route>
+          {
+            RouteMenus.map(list => (
+              <Route key={list.path} path={list.path} exact={list.exact} component={list.component}></Route>
+            ))
+          }
           <Route component={Error}></Route>
         </Switch>
       </div>

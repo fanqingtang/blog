@@ -3,7 +3,7 @@
  * @Autor: fqt
  * @Date: 2020-11-19 18:25:37
  * @LastEditors: fqt
- * @LastEditTime: 2020-11-19 20:43:00
+ * @LastEditTime: 2020-11-20 09:13:42
  */
 
 const path = require('path')
@@ -88,7 +88,8 @@ module.exports = {
     alias: {
       '@': path.join(__dirname, '../client'),
       '@components': path.join(__dirname, '../client/components'),
-      '@img': path.join(__dirname, '../client/assets/img')
+      '@img': path.join(__dirname, '../client/assets/img'),
+      '@service': path.join(__dirname, '../service')
     }
   }
 }
