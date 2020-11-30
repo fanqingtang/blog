@@ -3,7 +3,7 @@
  * @Autor: fqt
  * @Date: 2020-11-19 18:25:37
  * @LastEditors: fqt
- * @LastEditTime: 2020-11-20 14:17:06
+ * @LastEditTime: 2020-11-30 17:33:08
  */
 
 const path = require('path')
@@ -31,8 +31,14 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: [MiniExtractTextPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
-
+        use: [MiniExtractTextPlugin.loader, 'css-loader', 'postcss-loader', {
+          loader: 'less-loader',
+          options: {
+            lessOptions: {
+              javascriptEnabled: true
+            }
+          }
+        }]
       },
       {
         test: /.jsx$/,
