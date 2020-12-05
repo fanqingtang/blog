@@ -7,7 +7,7 @@
  */
 import Home from '@/view/home'
 import HappyLive from '@/view/happyLive'
-import Instroduction from '@/view/Instroduction'
+import Instroduction from '@/view/instroduction'
 import ArticleDetail from '@/view/home/articleDetail'
 const routeMenu = [
   {

@@ -31,21 +31,31 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: [MiniExtractTextPlugin.loader, 'css-loader', 'postcss-loader', {
-          loader: 'less-loader',
-          options: {
-            lessOptions: {
-              javascriptEnabled: true
+        use: [
+          MiniExtractTextPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                javascriptEnabled: true
+              }
             }
           }
-        }]
+        ]
       },
       {
-        test: /.jsx$/,
-        loader: 'babel-loader'
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader'
+          }
+        ]
       },
       {
-        test: /.(j|t)sx?$/,
+        test: /\.js(x?)$/,
         loader: 'babel-loader',
         exclude: [path.join(__dirname, '../node_modules')]
       },
@@ -87,14 +97,12 @@ module.exports = {
     }),
     new MiniExtractTextPlugin({ filename: './css/[name].css' }),
     new CopyWebpackPlugin({
-      patterns: [
-        { from: path.join(__dirname, '../public'), to: 'public' }
-      ]
+      patterns: [{ from: path.join(__dirname, '../public'), to: 'public' }]
     }),
     Autoprefixer
   ],
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'], // 扩展名
     alias: {
       '@': path.join(__dirname, '../client'),
       '@components': path.join(__dirname, '../client/components'),

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './index.module.less'
 import Article from '@/view/content/components/Article'
 import Right from '@/view/content/components/Right'
@@ -10,7 +10,7 @@ const Content = () => {
           <Article />
         </div>
         <div className={styles.content_inner_right}>
-          <Right/>
+          <Right />
         </div>
       </div>
     </main>
